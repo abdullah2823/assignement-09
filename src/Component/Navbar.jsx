@@ -3,7 +3,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="w-11/12 mx-auto py-5">
+    <div className="w-11/12 mx-auto mt-5 border-b-2 border-gray-300">
       <div className="navbar bg-base-100 ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -28,16 +28,16 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
+              <li className="text-accent">
                 <a>Home</a>
               </li>
             </ul>
           </div>
-          <a className="text-3xl font-bold text-Blue">Toy Topia</a>
+          <a className="text-3xl font-bold text-Blue text-gray-950">Toy <span className="text-red-500">Topia</span></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li className="text-2xl font-medium">
+            <li className="text-2xl text-accent font-medium">
               <a>Home</a>
             </li>
           </ul>
@@ -47,7 +47,7 @@ const Navbar = () => {
           <div>
             <CircleUserRound />
           </div>
-          <a className="btn bg-red-500 text-white text-xl px-4">Login</a>
+          <a className="btn bg-secondary text-white text-xl px-4">Login</a>
         </div>
       </div>
     </div>
