@@ -1,27 +1,27 @@
 import React from "react";
-import banner from "../assets/Toys-store-png.png";
+import { Link, useLoaderData } from "react-router-dom";
+import Card from "../Component/Card";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Home = () => {
-  return (
-    <div className="w-11/12 mx-auto flex flex-col md:flex-row items-center justify-between gap-6 py-10">
-      {/* Text Section */}
-      <div className="text-center md:text-left md:w-1/2">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-          Toys Shop <span className="text-red-600">for Kids</span>
-        </h1>
-        <p className="mt-4 text-lg text-gray-600">
-                    Welcome to our magical toy shop where fun meets learning! Explore a wide range of safe, high-quality, and engaging toys designed to spark imagination and creativity in children of all ages. Whether you're looking for educational puzzles, soft plushies, action figures, or creative DIY kits — we have something special for every curious mind. Bring joy and adventure into your child's life with toys they'll love and cherish.
-        </p>
-      </div>
+  const data = useLoaderData();
+  // cosnt [toyName, availableQuantity, price, rating, pictureURL] =data
+  const popularToys = data.slice(0, 8)
 
-      {/* Image Section */}
-      <div className="md:w-1/2 flex justify-center">
-        <img
-          src={banner}
-          alt="Toys Banner"
-          className="w-full max-w-md md:max-w-full rounded-2xl object-cover"
-        />
+
+  return (
+    <div>
+      <div className="text-3xl font-bold">Popular Toys({data.length})</div>
+      <div className="grid grid-cols-3 py-5 gap-3">
+        {popularToys.map(cards => (
+          <Card key={cards.toyId} cards={cards} />
+        ))}
+
       </div>
+      <Link>
+      <button className="btn btn-outline bg-secondary text-white py-6 flex justify-end-safe">See all product <FaArrowRightLong />
+</button>
+      </Link>
     </div>
   );
 };

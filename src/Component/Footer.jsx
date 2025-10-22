@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Instagram, LucideTwitter, Twitter, TwitterIcon } from "lucide-react";
+import { Facebook, Instagram, Twitter } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -42,7 +42,7 @@ const Footer = () => {
                         rel="noopener noreferrer"
                         className="hover:text-primary"
                     >
-                        <LucideTwitter />
+                        <Twitter />
                     </a>
                 </div>
             </nav>

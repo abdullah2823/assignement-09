@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
-import { Home } from "lucide-react";
+import Home from "../pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +10,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader: ()=>fetch("/product.JSON")
       },
     ],
   },
