@@ -4,24 +4,28 @@ import Card from "../Component/Card";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const Home = () => {
-  const data = useLoaderData();
-  // cosnt [toyName, availableQuantity, price, rating, pictureURL] =data
-  const popularToys = data.slice(0, 8)
-
+  const data = useLoaderData() || [];
+  const popularToys = data.slice(0, 8);
 
   return (
     <div>
-      <div className="text-3xl font-bold">Popular Toys({data.length})</div>
-      <div className="grid grid-cols-3 py-5 gap-3">
-        {popularToys.map(cards => (
+      <div className="text-3xl font-bold mb-5">
+        Popular Toys ({data.length})
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 py-5">
+        {popularToys.map((cards) => (
           <Card key={cards.toyId} cards={cards} />
         ))}
-
       </div>
-      <Link>
-      <button className="btn btn-outline bg-secondary text-white py-6 flex justify-end-safe">See all product <FaArrowRightLong />
-</button>
-      </Link>
+
+      <div className="flex justify-end mt-5">
+        <Link to="/allproduct">
+          <button className="btn btn-outline bg-secondary text-white py-3 px-5 flex items-center gap-2">
+            See all products <FaArrowRightLong />
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
