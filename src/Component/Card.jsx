@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ cards }) => {
-  const { toyName, availableQuantity, price, rating, image } = cards;
+  const { toyId, toyName, availableQuantity, price, rating, image } = cards;
+  console.log(toyId);
   return (
     <div>
       <div className="card w-100 bg-base-100 shadow-xl border-gray-400 mx-auto">
@@ -28,9 +30,9 @@ const Card = ({ cards }) => {
             <span className="text-gray-600 ml-1 text-sm">({rating})</span>
           </div>
 
-          <div className="card-actions mt-2">
+          <Link to={`/toy-details/${toyId}`} className="card-actions mt-2">
             <button className="btn btn-primary w-full">View More</button>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

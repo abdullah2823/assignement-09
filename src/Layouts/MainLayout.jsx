@@ -15,11 +15,11 @@ const MainLayout = () => {
         <Banner />
       </header>
       <main className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-12 gap-6">
-        <section className="order-2 md:order-1 md:col-span-9 rounded-lg p-4 shadow-lg">
+        <section className="order-2 md:order-1 md:col-span-9 rounded-lg p-4 shadow-lg bg-white">
           <Outlet />
         </section>
 
-        <section className="order-1 md:order-2 md:col-span-3 rounded-lg p-4 shadow-lg sticky top-20 h-fit">
+        <section className="order-1 md:order-2 md:col-span-3 rounded-lg p-4 shadow-lg bg-white md:sticky md:top-20 h-fit">
           <Rightside />
         </section>
       </main>

@@ -6,7 +6,17 @@ import { use } from "react";
 // import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { user } = use(AuthContext);
+  const { user, logOut } = use(AuthContext);
+    const handleLogout = () => {
+    console.log("logout");
+    logOut()
+      .then(() => {
+        alert("Logout successful");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="w-11/12 mx-auto py-5 border-b-1 border-gray-300">
@@ -60,12 +70,18 @@ const Navbar = () => {
             alt="user"
             className="w-10 h-10 rounded-full border border-gray-300 object-cover"
           />
-          <Link
-            to="/auth/login"
-            className="btn bg-secondary text-white text-xl px-4"
-          >
-            Login
-          </Link>
+          {user ? (
+            <button onClick={handleLogout} className="btn bg-secondary text-white text-xl px-4">
+              LogOut
+            </button>
+          ) : (
+            <Link
+              to="/auth/login"
+              className="btn bg-secondary text-white text-xl px-4"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

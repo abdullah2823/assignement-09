@@ -1,15 +1,27 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
-  const handleRegister = (e) => {
+  const {createUser, setUser} = use(AuthContext);
+   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
-    const email = form.email.value;
+    const email = form.email.value; 
     const password = form.password.value;
     console.log(name, photo, email, password);
+    createUser(email, password)
+    .then(result =>{
+      const user = result.user;
+      setUser(user);
+    })
+    .catch((error) =>{
+      const errorMessage = error.message;
+      alert(errorMessage);
+    });
+
   }
   return (
     <div className="hero bg-base-200 min-h-screen">

@@ -5,6 +5,7 @@ import AllProduct from "../Component/Allproduct";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../Layouts/AuthLayout";
+import ToyDetails from "../pages/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/auth",
     element: <AuthLayout />,
-    children:[
+    children: [
       {
         path: "/auth/login",
         element: <Login />,
@@ -34,13 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/auth/register",
         element: <Register />,
-      }
-    ]
+      },
+    ],
   },
   {
-    path: "/toys",
-    element: <h1>Toys Page</h1>,
+    path: "/toy-details/:id",
+    element: <ToyDetails />,
   },
+
   {
     path: "*",
     element: <h1>404 Not Found</h1>,
